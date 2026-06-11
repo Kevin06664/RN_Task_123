@@ -137,7 +137,7 @@ const App = () => {
       end={{ x: 0, y: 1 }}
       style={styles.container}
     >
-      <SafeAreaView>
+      <SafeAreaView style={styles.safeArea}>
         <Text style={styles.title}>Product List</Text>
 
         <View style={styles.searchContainer}>
@@ -155,6 +155,7 @@ const App = () => {
         </View>
 
         <FlatList
+          contentContainerStyle={styles.flatListContent}
           data={filteredProduct}
           renderItem={renderItem}
           keyExtractor={item => item?.id?.toString()}
@@ -184,6 +185,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#edededff',
     paddingHorizontal: 16,
+  },
+  safeArea: {
+    flex: 1,
+  },
+  flatListContent: {
+    paddingBottom: 150,
   },
   title: {
     fontSize: 30,
